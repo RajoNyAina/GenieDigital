@@ -1,7 +1,28 @@
 ﻿@inherits LayoutComponentBase
 
+@inject IJSRuntime JS
+
 <Header />
 
 @Body
 
 <Footer />
+
+<button class="scroll-to-top" @onclick="ScrollToTop">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initScrollToTop");
+        }
+    }
+
+    private async Task ScrollToTop()
+    {
+        await JS.InvokeVoidAsync("scrollToTop");
+    }
+}

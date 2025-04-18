@@ -1,0 +1,67 @@
+﻿.services,.tarifs {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.pack-zen {
+    height: 100vh; /* pour laisser un petit espace en bas */
+    background: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .pack-zen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .pack-zen h1, .pack-zen p, .pack-zen a {
+        z-index: 2;
+        position: relative;
+        color: white;
+    }
+
+.tarif {
+    background: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.pack-details {
+    background: #fff;
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+    .pack-details ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .pack-details li {
+        margin: 10px 0;
+        padding-left: 1.5em;
+        position: relative;
+    }
+
+        .pack-details li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
