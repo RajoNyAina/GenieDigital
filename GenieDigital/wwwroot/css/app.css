@@ -291,3 +291,26 @@ footer {
 code {
     color: #c02d76;
 }
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    display: none; /* caché au début */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+    .scroll-to-top.show {
+        display: flex;
+    }
