@@ -1,0 +1,47 @@
+﻿<section id="services" class="section">
+    <h2>Nos services</h2>
+    <div class="container grid">
+        @foreach (var service in ServicesList)
+        {
+            <Service ServiceModel="service" />
+        }
+    </div>
+</section>
+
+@code {
+    private IList<Models.Home.Service> ServicesList = new List<Models.Home.Service>();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ServicesList.Add(new Models.Home.Service
+            {
+                Delay = 100,
+                Icon = "fas fa-bullhorn",
+                Name = "Emailing & Prospection",
+                Description = "Campagnes de prospection automatisées, cold emails, leads qualifiés."
+            });
+        ServicesList.Add(new Models.Home.Service
+            {
+                Delay = 200,
+                Icon = "fas fa-headset",
+                Name = "Support & Assistance",
+                Description = "Support client externalisé par email, chat ou réseaux sociaux."
+            });
+        ServicesList.Add(new Models.Home.Service
+            {
+                Delay = 300,
+                Icon = "fas fa-code",
+                Name = "Développement & Web",
+                Description = "Sites vitrines, intégration, maintenance et automatisations techniques."
+            });
+        ServicesList.Add(new Models.Home.Service
+            {
+                Delay = 400,
+                Icon = "fas fa-rocket",
+                Name = "Growth & Automation",
+                Description = "Zapier, Make, intégration CRM, scraping, growth hacking avancé."
+            });
+    }
+}
