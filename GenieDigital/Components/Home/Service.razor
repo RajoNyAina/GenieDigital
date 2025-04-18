@@ -1,0 +1,13 @@
+﻿<div class="card" data-aos="zoom-in" data-aos-delay="@ServiceModel.Delay">
+
+    <i class="@ServiceModel.Icon"></i>
+    <h3>@ServiceModel.Name</h3>
+    <p>
+        @ServiceModel.Description
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public Models.Home.Service ServiceModel { get; set; } = new() { Icon = "", Name = "", Description = ""};
+}
