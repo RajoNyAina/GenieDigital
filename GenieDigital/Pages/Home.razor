@@ -1,7 +1,72 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<section class="hero">
+    <h1 data-aos="fade-down">Votre partenaire digital offshore</h1>
+    <p data-aos="fade-up" data-aos-delay="200">
+        Externalisez vos tâches marketing, techniques et support client.
+    </p>
+    <a href="#contact" class="btn" data-aos="zoom-in" data-aos-delay="400">Discutons de votre projet</a>
+</section>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<section id="services" class="section">
+    <h2>Nos services</h2>
+    <div class="container grid">
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+            <i class="fas fa-bullhorn"></i>
+            <h3>Emailing & Prospection</h3>
+            <p>
+                Campagnes de prospection automatisées, cold emails, leads qualifiés.
+            </p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+            <i class="fas fa-headset"></i>
+            <h3>Support & Assistance</h3>
+            <p>Support client externalisé par email, chat ou réseaux sociaux.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+            <i class="fas fa-code"></i>
+            <h3>Développement & Web</h3>
+            <p>
+                Sites vitrines, intégration, maintenance et automatisations
+                techniques.
+            </p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+
+            <i class="fas fa-rocket"></i>
+            <h3>Growth & Automation</h3>
+            <p>Zapier, Make, intégration CRM, scraping, growth hacking avancé.</p>
+        </div>
+    </div>
+</section>
+
+<section id="a-propos" class="section about">
+    <h2>À propos</h2>
+    <div class="container">
+        <p>
+            Génie Digital est une agence basée à Madagascar, spécialisée dans les
+            services offshore pour startups, PME, freelances et agences. Notre
+            équipe est formée, motivée et orientée résultat. On parle votre
+            langage, et on travaille dans votre fuseau horaire.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <p style="text-align: center">
+        Vous avez un projet ou un besoin spécifique ? Parlons-en !
+    </p>
+    <form>
+        <input type="text" placeholder="Votre nom" required />
+        <input type="email" placeholder="Votre email" required />
+        <textarea rows="5"
+                  placeholder="Décrivez votre besoin..."
+                  required></textarea>
+        <button type="submit" class="btn-form">Envoyer</button>
+    </form>
+</section>
