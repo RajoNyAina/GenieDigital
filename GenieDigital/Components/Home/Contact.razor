@@ -1,18 +1,83 @@
-﻿<section id="contact" class="section contact">
+﻿@inject HttpClient Http
+
+<section id="contact" class="section contact">
     <h2>Contact</h2>
     <p style="text-align: center">
         Vous avez un projet ou un besoin spécifique ? Parlons-en !
     </p>
-    <form>
-        <input type="text" placeholder="Votre nom" required />
-        <input type="email" placeholder="Votre email" required />
-        <textarea rows="5"
-                  placeholder="Décrivez votre besoin..."
-                  required></textarea>
-        <button type="submit" class="btn-form">Envoyer</button>
-    </form>
+    <EditForm Model="contact" OnValidSubmit="SendMessage">
+        <InputText @bind-Value="contact.Name" placeholder="Votre nom" required />
+        <InputText @bind-Value="contact.Email" placeholder="Votre email" type="email" required />
+        <InputText @bind-Value="contact.Object" placeholder="Objet" />
+        <InputTextArea @bind-Value="contact.Message" rows="5" placeholder="Décrivez votre besoin..." required />
+        <button type="submit" class="btn btn-form" disabled="@sending">
+            @if (sending)
+            {
+                <i class="fas fa-spinner fa-spin me-2"></i>
+                <span>Envoi...</span>
+            }
+            else
+            {
+                <span>Envoyer</span>
+            }
+        </button>
+    </EditForm>
+    @if (!string.IsNullOrEmpty(status))
+    {
+        if(statusClass == "status-ok")
+        {
+            <p class="status-ok">@status</p>
+        }
+        else
+        {
+            <p class="status-ko">@status</p>
+        }
+    }
 </section>
 
 @code {
+    private ContactRequest contact = new()
+    {
+        Email = string.Empty,
+        Name = string.Empty,
+        Message = string.Empty
+    };
+    private string status = string.Empty;
+    private string statusClass = string.Empty;
+    private bool sending = false;
 
+    private async Task SendMessage()
+    {
+        try
+        {
+            status = "";
+            statusClass = "";
+            sending = true;
+            var response = await Http.PostAsJsonAsync("api/Contact", contact);
+            if (response.IsSuccessStatusCode)
+            {
+                status = "Merci de nous avoir contacter, nous vous répondrons le plus vite possible. A bientôt";
+                statusClass = "status-ok";
+                contact = new()
+                    {
+                        Email = string.Empty,
+                        Name = string.Empty,
+                        Message = string.Empty
+                    };
+            }
+            else
+            {
+                status = "Une erreur s'est produite, merci de réessayer. Si l'erreur persiste, contactez-nous directement au contact@genie-digital.com.";
+                statusClass = "status-ko";
+            }
+        }
+        catch (Exception e)
+        {
+            status = $"Erreur d'envoi : {e.Message}";
+        }
+        finally
+        {
+            sending = false;
+        }
+    }
 }
