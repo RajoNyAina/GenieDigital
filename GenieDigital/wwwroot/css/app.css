@@ -39,7 +39,7 @@ h2 {
 }
 
 .logo {
-    height: 50px; /* Ajuster la hauteur selon tes préférences */
+    height: 50px; /* Ajuster la hauteur selon tes prï¿½fï¿½rences */
     border-radius: 50%;
 }
 
@@ -61,7 +61,7 @@ h2 {
 
 .hero {
     height: 100vh; /* pour laisser un petit espace en bas */
-    background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    background: url('/images/team.jpg') center/cover no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -119,11 +119,21 @@ h2 {
     }
 }
 
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 1.5rem;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    gap: 1.5rem;
+}
+
+.team-img {
+    border-radius: 50%;
+    width: 160px;
 }
 
 .card {
@@ -163,7 +173,6 @@ h2 {
     .about p:hover {
         transform: scale(1.01);
     }
-
 
 form {
     display: flex;
@@ -303,7 +312,7 @@ code {
     width: 45px;
     height: 45px;
     font-size: 20px;
-    display: none; /* caché au début */
+    display: none; /* cachï¿½ au dï¿½but */
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
